@@ -10,6 +10,9 @@ end
 
 describe Grape::Kaminari do
 
+  #
+  #
+  #
   describe 'unpaginated api' do
     subject { Class.new(UnPaginatedAPI) }
 
@@ -18,6 +21,9 @@ describe Grape::Kaminari do
     end
   end
 
+  #
+  #
+  #
   describe 'default paginated api' do
     subject { Class.new(PaginatedAPI) }
 
@@ -81,11 +87,13 @@ describe Grape::Kaminari do
         expect(params['offset'][:default]).to eq(0)
       end
 
-
     end
 
   end
 
+  #
+  #
+  #
   describe 'custom paginated api' do
     subject { Class.new(PaginatedAPI) }
     def app; subject; end
@@ -110,7 +118,6 @@ describe Grape::Kaminari do
       expect(last_response.status).to eq 400
       expect(last_response.body).to match /per_page must be less than 999/
     end
-
 
   end
 

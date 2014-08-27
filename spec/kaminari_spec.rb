@@ -123,6 +123,18 @@ describe Grape::Kaminari do
       expect(params['offset'][:default]).to eq(9)
     end
 
+  end
+
+  #
+  #
+  #
+  describe 'paginated api without :offset' do
+    subject { Class.new(PaginatedAPI) }
+
+    it 'excludes :offset from declared params' do
+      subject.paginate offset: false
+      expect(subject.settings[:declared_params]).not_to include(:offset)
+    end
 
   end
 

@@ -60,7 +60,7 @@ describe Grape::Kaminari do
       end
 
       it 'describes :offset' do
-        expect(params['offset'][:desc]).to eq(nil)
+        expect(params['offset'][:desc]).to eq('Pad a number of results.')
       end
 
       it 'validates :page as Integer' do

@@ -32,7 +32,8 @@ module Grape
             optional :per_page, type: Integer, default: options[:per_page],
                                 desc: 'Number of results to return per page.',
                                 max_value: options[:max_per_page]
-            optional :offset,   type: Integer, default: options[:offset]
+            optional :offset,   type: Integer, default: options[:offset],
+                                desc: 'Pad a number of results.'
           end
         end
       end

@@ -99,7 +99,7 @@ describe Grape::Kaminari do
     def app; subject; end
 
     before do
-      subject.paginate per_page:99, max_per_page: 999
+      subject.paginate per_page:99, max_per_page: 999, offset: 9
       subject.get '/' do; end
     end
     let(:params) {subject.routes.first.route_params}
@@ -118,6 +118,11 @@ describe Grape::Kaminari do
       expect(last_response.status).to eq 400
       expect(last_response.body).to match /per_page must be less than 999/
     end
+
+    it 'defaults :offset to customized value' do
+      expect(params['offset'][:default]).to eq(9)
+    end
+
 
   end
 
